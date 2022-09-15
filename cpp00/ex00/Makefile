@@ -1,4 +1,4 @@
-SRC_M = 
+SRC_M = megaphone.cpp \
 
 SRC_B = 
 
@@ -8,9 +8,9 @@ HEADER			=
 SOURCES			=	$(SRC_M)
 BONUS_FILES		=	$(SRC_B)
 
-OBJECTS			= 	$(SOURCES:.c=.o)
+OBJECTS			= 	$(SOURCES:.cpp=.o)
 
-NAME			=	cub3d
+NAME			=	megaphone
 
 CC				=	c++
 RM				=	rm -f
