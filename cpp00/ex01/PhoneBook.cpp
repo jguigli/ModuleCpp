@@ -49,15 +49,34 @@ void    PhoneBook::setContact(void)
 void    PhoneBook::displayContact(void) const
 {
     static int  level = 0;
+    std::string str;
 
     if (this->index > level)
-        level == this->index;
+        level = this->index;
     std::cout << std::setw(10) << "Index" << "|";
     std::cout << std::setw(10) << "Firstname" << "|";
     std::cout << std::setw(10) << "Lastname" << "|";
     std::cout << std::setw(10) << "Nickname" << std::endl;
     for (int i = 0; i < level; i++)
     {
-        std::cout << std::setw(10) << ;
+        std::cout << std::setw(10) << i << "|";;
+        str = this->contacts[i].getFirstname();
+        if (str.size() > 10)
+            std::cout << str.substr(0, 9) << ".|";
+        else
+            std::cout << std::setw(10) << str << "|";
+        str = this->contacts[i].getLastname();
+        if (str.size() > 10)
+            std::cout << str.substr(0, 9) << ".|";
+        else
+            std::cout << std::setw(10) << str << "|";
+        str = this->contacts[i].getNickname();
+        if (str.size() > 10)
+            std::cout << str.substr(0, 9) << "." << std::endl;
+        else
+            std::cout << std::setw(10) << str << std::endl;
     }
+    std::cout << "Veuillez entrer l'index du contact que vous souhaitez afficher\n";
+    std::getline(std::cin, str);
+    if (str)
 }
