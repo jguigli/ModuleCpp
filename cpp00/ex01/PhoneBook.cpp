@@ -11,6 +11,8 @@ PhoneBook::~PhoneBook(void)
     return;
 }
 
+int PhoneBook::level = 0;
+
 void    PhoneBook::setContact(void)
 {
     std::string	line;
@@ -48,11 +50,10 @@ void    PhoneBook::setContact(void)
 
 void    PhoneBook::displayContact(void) const
 {
-    static int  level = 0;
     std::string str;
 
     if (this->index > level)
-        level = this->index;
+        this->level = this->index;
     std::cout << std::setw(10) << "Index" << "|";
     std::cout << std::setw(10) << "Firstname" << "|";
     std::cout << std::setw(10) << "Lastname" << "|";
@@ -76,7 +77,24 @@ void    PhoneBook::displayContact(void) const
         else
             std::cout << std::setw(10) << str << std::endl;
     }
-    std::cout << "Veuillez entrer l'index du contact que vous souhaitez afficher\n";
+}
+
+void    PhoneBook::chooseContact(void) const
+{
+    int         indexpb = 0;
+    std::string str;
+
+    std::cout << "\nVeuillez entrer l'index du contact que vous souhaitez afficher\n";
     std::getline(std::cin, str);
-    if (str)
+    std::stringstream(str) >> indexpb;
+    if (indexpb <= this->level && indexpb > 0)
+    {
+        std::cout << this->contacts[indexpb].getFirstname() << '\n';
+        std::cout << this->contacts[indexpb].getLastname() << '\n';
+        std::cout << this->contacts[indexpb].getNickname() << '\n';
+        std::cout << this->contacts[indexpb].getNumber() << '\n';
+        std::cout << this->contacts[indexpb].getDarkestsecret() << std::endl;
+    }
+    else
+        std::cout << "Index inccorect" << std::endl;
 }
