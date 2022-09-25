@@ -6,7 +6,7 @@ BONUS_FILES		=	$(SRC_B)
 
 OBJECTS			= 	$(SOURCES:.cpp=.o)
 
-NAME			=	phonebook
+NAME			=	account
 
 CC				=	c++
 RM				=	rm -f
