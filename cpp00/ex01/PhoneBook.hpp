@@ -12,7 +12,7 @@ class PhoneBook {
 
     void    setContact(void);
     void    displayContact(void) const;
-    void    chooseContact(void) const;
+    void    chooseContact(void);
     int     getLevel(void);
     int     have_alpha(std::string str);
 

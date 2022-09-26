@@ -97,13 +97,13 @@ void    PhoneBook::displayContact(void) const
 {
     std::string str;
 
-    if (this->index > level)
+    if (this->index > this->level)
         this->level = this->index;
     std::cout << std::setw(10) << "Index" << "|";
     std::cout << std::setw(10) << "Firstname" << "|";
     std::cout << std::setw(10) << "Lastname" << "|";
     std::cout << std::setw(10) << "Nickname" << std::endl;
-    for (int i = 0; i < level; i++)
+    for (int i = 0; i < this->level; i++)
     {
         std::cout << std::setw(10) << i << "|";;
         str = this->contacts[i].getFirstname();
@@ -124,16 +124,17 @@ void    PhoneBook::displayContact(void) const
     }
 }
 
-void    PhoneBook::chooseContact(void) const
+void    PhoneBook::chooseContact(void)
 {
     int         indexpb = 0;
     std::string str;
 
     std::cout << "\nVeuillez entrer l'index du contact que vous souhaitez afficher\n";
     std::getline(std::cin, str);
+    if (str == "")
+        return;
     std::stringstream(str) >> indexpb;
-    std::cout << indexpb << std::endl;
-    if (indexpb <= this->level && indexpb >= 0 && PhoneBook::have_alpha(str))
+    if (indexpb <= this->level && indexpb >= 0 && this->have_alpha(str))
     {
         std::cout << this->contacts[indexpb].getFirstname() << '\n';
         std::cout << this->contacts[indexpb].getLastname() << '\n';
