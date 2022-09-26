@@ -23,9 +23,14 @@ int	main()
 		else if (line == "SEARCH")
 		{
 			repo.displayContact();
-			repo.chooseContact();
-			if (std::cin.eof())
-        		loop = 0;
+			if (repo.getLevel() > 0)
+			{
+				repo.chooseContact();
+				if (std::cin.eof())
+					loop = 0;
+			}
+			else
+				std::cout << "Veuillez entrer un contact" << std::endl;
 		}
 		else if (line == "EXIT")
 			loop = 0;

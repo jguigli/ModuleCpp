@@ -13,12 +13,16 @@ class PhoneBook {
     void    setContact(void);
     void    displayContact(void) const;
     void    chooseContact(void) const;
+    int     getLevel(void);
+    int     have_alpha(std::string str);
+
     PhoneBook(void);
     ~PhoneBook(void);
 
     private :
 
     int     index;
+    int     nbInfo;
     static int  level;
     Contact contacts[8];
 };
