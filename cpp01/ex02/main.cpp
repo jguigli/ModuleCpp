@@ -8,7 +8,7 @@ int	main(void)
 	std::string *stringPTR = &str;
 
 	std::cout << "Adresse de la string : " << &str
-			<< "\nAdresse de la string stockée dans le pointeur : " << &stringPTR
+			<< "\nAdresse de la string stockée dans le pointeur : " << &(*stringPTR)
 			<< "\nAdresse de la string stockée dans la référence : " << &stringREF;
 
 	std::cout << "\n\nValeur de la string : " << str
