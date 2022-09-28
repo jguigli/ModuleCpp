@@ -1,7 +1,7 @@
-SRC_M = Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp \
-		main.cpp \
+SRC_M = main.cpp \
+		HumanA.cpp \
+		HumanB.cpp \
+		Weapon.cpp \
 
 SRC_B = 
 
@@ -13,7 +13,7 @@ BONUS_FILES		=	$(SRC_B)
 
 OBJECTS			= 	$(SOURCES:.cpp=.o)
 
-NAME			=	Zombie
+NAME			=	brain
 
 CC				=	c++
 RM				=	rm -f

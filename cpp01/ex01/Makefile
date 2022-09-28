@@ -1,4 +1,6 @@
-SRC_M = megaphone.cpp \
+SRC_M = Zombie.cpp \
+		zombieHorde.cpp \
+		main.cpp \
 
 SRC_B = 
 
@@ -10,7 +12,7 @@ BONUS_FILES		=	$(SRC_B)
 
 OBJECTS			= 	$(SOURCES:.cpp=.o)
 
-NAME			=	megaphone
+NAME			=	zombieHorde
 
 CC				=	c++
 RM				=	rm -f
