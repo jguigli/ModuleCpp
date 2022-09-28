@@ -1,7 +1,7 @@
 SRC_M = main.cpp \
+		Weapon.cpp \
 		HumanA.cpp \
 		HumanB.cpp \
-		Weapon.cpp \
 
 SRC_B = 
 
