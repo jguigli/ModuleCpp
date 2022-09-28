@@ -5,19 +5,27 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
-class Weapon {
 
-	public:
 
-	std::string &const getType(void);
+class Weapon 
+{
+
+private:
+	std::string _type;
+
+public:
+	const std::string& getType(void) const;
 	void	setType(std::string value);
 
+	Weapon(void);
 	Weapon(std::string name);
+	Weapon operator=(const Weapon& lhs);
+
 	~Weapon(void);
 
-	private:
-
-	std::string type;
 };
+
+
+
 
 #endif

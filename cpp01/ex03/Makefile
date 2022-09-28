@@ -13,7 +13,7 @@ BONUS_FILES		=	$(SRC_B)
 
 OBJECTS			= 	$(SOURCES:.cpp=.o)
 
-NAME			=	brain
+NAME			=	weapon
 
 CC				=	c++
 RM				=	rm -f
