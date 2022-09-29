@@ -48,6 +48,9 @@
 		"streambuf": "cpp",
 		"typeinfo": "cpp",
 		"chrono": "cpp",
-		"ratio": "cpp"
+		"ratio": "cpp",
+		"compare": "cpp",
+		"concepts": "cpp",
+		"ranges": "cpp"
 	}
 }
