@@ -11,16 +11,22 @@ Harl::~Harl()
 void	Harl::complain(std::string level)
 {
 	void (Harl::*funcptr[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	std::string array[] = {"debug", "info", "warning", "error"};
-
+	std::string array[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	if (level == "")
+	{
+		std::cout << "Invalid command" << std::endl;
+		return;
+	}
 	for (int i = 0; i < 4; i++)
 	{
 		if (level == array[i])
 		{
 			void (Harl::*_ptr)() = funcptr[i];
 			(this->*_ptr)();
+			return;
 		}
 	}
+	std::cout << "Invalid command" << std::endl;
 }
 
 void Harl::debug()
