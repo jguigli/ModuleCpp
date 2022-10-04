@@ -10,16 +10,12 @@ Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
 	_fix = value * (1 << _bit);
-	std::cout << "fix normal = "<< (value << 8) << std::endl;
-	std::cout << "fix autre = "<< value * (1 << 8) << std::endl;
-	std::cout << "Int convert in fix value = "<< _fix << std::endl;
 }
 
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
 	_fix = roundf(value * (1 << _bit));
-	std::cout << "Float convert in fix value = "<< _fix << std::endl;
 
 }
 
