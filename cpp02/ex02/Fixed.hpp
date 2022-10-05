@@ -15,12 +15,12 @@ class Fixed
 
 	Fixed& operator=(Fixed const &copie);
 	//comparaison
-	bool operator>(Fixed const &a);
-	bool operator<(Fixed const &a);
-	bool operator>=(Fixed const &a);
-	bool operator<=(Fixed const &a);
-	bool operator==(Fixed const &a);
-	bool operator!=(Fixed const &a);
+	bool operator>(Fixed const &a) const;
+	bool operator<(Fixed const &a) const;
+	bool operator>=(Fixed const &a) const;
+	bool operator<=(Fixed const &a) const;
+	bool operator==(Fixed const &a) const;
+	bool operator!=(Fixed const &a) const;
 	//arithmetiques
 	Fixed operator+(Fixed const &a);
 	Fixed operator-(Fixed const &a);
@@ -37,9 +37,9 @@ class Fixed
 	void setRawBits(int const raw);
 	float toFloat(void) const;
 	int toInt(void) const;
-	static int min(Fixed &a, Fixed &b);
-	static int min(Fixed const &a, Fixed const &b);
-	static int max(Fixed &a, Fixed &b);
+	static Fixed min(Fixed &a, Fixed &b);
+	static Fixed min(Fixed const &a, Fixed const &b);
+	static Fixed max(Fixed &a, Fixed &b);
 	static Fixed max(Fixed const &a, Fixed const &b);
 
 	private:

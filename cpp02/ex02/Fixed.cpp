@@ -66,32 +66,32 @@ std::ostream& operator<<(std::ostream &Flux, Fixed const &value)
 	return (Flux);
 }
 
-bool Fixed::operator>(Fixed const &a)
+bool Fixed::operator>(Fixed const &a) const
 {
 	return (_fix > a._fix);
 }
 
-bool Fixed::operator<(Fixed const &a)
+bool Fixed::operator<(Fixed const &a) const
 {
 	return (_fix < a._fix);
 }
 
-bool Fixed::operator>=(Fixed const &a)
+bool Fixed::operator>=(Fixed const &a) const
 {
 	return (_fix >= a._fix);
 }
 
-bool Fixed::operator<=(Fixed const &a)
+bool Fixed::operator<=(Fixed const &a) const
 {
 	return (_fix <= a._fix);
 }
 
-bool Fixed::operator==(Fixed const &a)
+bool Fixed::operator==(Fixed const &a) const
 {
 	return (_fix == a._fix);
 }
 
-bool Fixed::operator!=(Fixed const &a)
+bool Fixed::operator!=(Fixed const &a) const
 {
 	return (_fix != a._fix);
 }
@@ -146,28 +146,28 @@ Fixed Fixed::operator--(int)
 	return temp;
 }
 
-int Fixed::min(Fixed &a, Fixed &b)
+Fixed Fixed::min(Fixed &a, Fixed &b)
 {
-	if (a._fix > b._fix)
-		return b._fix;
+	if (a > b)
+		return b;
 	else
-		return a._fix;
+		return a;
 }
 
-int Fixed::min(Fixed const &a, Fixed const &b)
+Fixed Fixed::min(Fixed const &a, Fixed const &b)
 {
-	if (a._fix > b._fix)
-		return b._fix;
+	if (a > b)
+		return b;
 	else
-		return a._fix;
+		return a;
 }
 
-int Fixed::max(Fixed &a, Fixed &b)
+Fixed Fixed::max(Fixed &a, Fixed &b)
 {
-	if (a.getRawBits() < b.getRawBits())
-		return b.toFloat();
+	if (a < b)
+		return b;
 	else
-		return a.toFloat();
+		return a;
 }
 
 Fixed Fixed::max(Fixed const &a, Fixed const &b)
