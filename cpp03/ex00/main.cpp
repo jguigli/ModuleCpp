@@ -2,13 +2,16 @@
 
 int	main(void)
 {
-	ClapTrap war("John");
+	ClapTrap clap("John");
 
-	war.attack("the death soldier");
-	war.takeDamage(3);
-	war.beRepaired(5);
-	war.takeDamage(12);
-	war.beRepaired(5);
+	std::cout << "\nCLAPTRAP TEST" << std::endl;
+	clap.attack("the frost soldier");
+	clap.takeDamage(3);
+	clap.beRepaired(5);
+	clap.takeDamage(12);
+	clap.beRepaired(5);
+
+	std::cout << std::endl;
 	
 	return 0;
 }

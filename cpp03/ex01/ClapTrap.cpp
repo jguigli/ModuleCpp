@@ -2,18 +2,18 @@
 
 ClapTrap::ClapTrap() : _hitPoint(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Constructor ClapTrap called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _hitPoint(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Constructor ClapTrap called" << std::endl;
 	_name = name;
 }
 
 ClapTrap::ClapTrap(ClapTrap const& copie)
 {
-	std::cout << "Constructor copy called" << std::endl;
+	std::cout << "Constructor copy ClapTrap called" << std::endl;
 	_name = copie._name;
 	_hitPoint = copie._hitPoint;
 	_energyPoints = copie._energyPoints;
@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(ClapTrap const& copie)
 
 ClapTrap& ClapTrap::operator=(ClapTrap const &copie)
 {
-	std::cout << "Copy assignement called" << std::endl;
+	std::cout << "Copy assignement ClapTrap called" << std::endl;
 	if (this != &copie)
 	{
 		_name = copie._name;
@@ -35,7 +35,7 @@ ClapTrap& ClapTrap::operator=(ClapTrap const &copie)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor ClapTrap called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)

@@ -3,17 +3,25 @@
 
 int	main(void)
 {
-	ClapTrap war("John");
-	ScavTrap robot("Lucien");
+	ClapTrap clap("John");
+	ScavTrap scav("Lucien");
 
-	war.attack("the death soldier");
-	war.takeDamage(3);
-	war.beRepaired(5);
-	war.takeDamage(12);
-	war.beRepaired(5);
+	std::cout << "\nCLAPTRAP TEST" << std::endl;
+	clap.attack("the frost soldier");
+	clap.takeDamage(3);
+	clap.beRepaired(5);
+	clap.takeDamage(12);
+	clap.beRepaired(5);
 
-	robot.guardGate();
-	robot.takeDamage(5);
-	
+	std::cout << "\nSCAVTRAP TEST" << std::endl;
+	scav.guardGate();
+	scav.attack("the fire soldier");
+	scav.takeDamage(5);
+	scav.beRepaired(5);
+	scav.takeDamage(12);
+	scav.beRepaired(5);
+
+	std::cout << std::endl;
+
 	return 0;
 }
