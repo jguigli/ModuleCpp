@@ -1,11 +1,11 @@
 #ifndef CAT_HPP
 #define CAT_HPP
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include <iostream>
 #include <string>
 
 
-class Cat: public virtual Animal
+class Cat: public virtual AAnimal
 {
 	public:
 
@@ -13,7 +13,7 @@ class Cat: public virtual Animal
 	Cat(std::string name);
 	Cat(Cat const& copie);
 	Cat& operator=(Cat const &copie);
-	virtual Animal& operator=(Animal const &copie);
+	virtual AAnimal& operator=(AAnimal const &copie);
 	virtual ~Cat();
 
 	void virtual makeSound() const;

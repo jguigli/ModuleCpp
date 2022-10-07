@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : AAnimal()
 {
 	std::cout << "Constructor Dog called" << std::endl;
 	_type = "Dog";
@@ -24,7 +24,7 @@ Dog& Dog::operator=(Dog const &copie)
 	return *this;
 }
 
-Animal& Dog::operator=(Animal const &copie)
+AAnimal& Dog::operator=(AAnimal const &copie)
 {
 	std::cout << "Copy assignement Dog called" << std::endl;
 	if (this != &copie)

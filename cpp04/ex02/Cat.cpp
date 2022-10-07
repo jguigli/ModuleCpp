@@ -1,6 +1,6 @@
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() : AAnimal()
 {
 	std::cout << "Constructor Cat called" << std::endl;
 	_type = "Cat";
@@ -24,7 +24,7 @@ Cat& Cat::operator=(Cat const &copie)
 	return *this;
 }
 
-Animal& Cat::operator=(Animal const &copie)
+AAnimal& Cat::operator=(AAnimal const &copie)
 {
 	std::cout << "Copy assignement Dog called" << std::endl;
 	if (this != &copie)
