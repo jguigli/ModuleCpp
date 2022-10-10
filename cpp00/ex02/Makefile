@@ -1,10 +1,11 @@
 SRC_M = Account.cpp \
 		tests.cpp \
 
-SOURCES			=	$(SRC_M)
-BONUS_FILES		=	$(SRC_B)
+HEADER			=	Account.hpp \
 
-OBJECTS			= 	$(SOURCES:.cpp=.o)
+SOURCES			=	$(SRC_M)
+
+OBJECTS			= 	$(SOURCES:%.cpp=%.o)
 
 NAME			=	account
 
@@ -13,8 +14,8 @@ RM				=	rm -f
 
 CFLAGS			=	-std=c++98 -Wall -Wextra -Werror 
 
-.c.o:
-				$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+%.o:%.cpp		$(HEADER)
+				$(CC) $(CFLAGS) -c $< -o $(<:%.cpp=%.o)
 
 all:			$(NAME)
 

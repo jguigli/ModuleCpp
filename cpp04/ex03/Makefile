@@ -1,30 +1,31 @@
-SRC_M = AAnimal.cpp \
-		Dog.cpp \
-		Cat.cpp \
-		Brain.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
+SRC_M = AMateria.cpp \
+		Character.cpp \
+		Cure.cpp \
+		Ice.cpp \
+		MateriaSource.cpp \
 		main.cpp \
 
-SRC_B = 
-
-
-HEADER			=	
+HEADER			=	AMateria.hpp \
+					Character.hpp \
+					Cure.hpp \
+					Ice.hpp \
+					ICharacter.hpp \
+					IMateriaSource.hpp \
+					MateriaSource.hpp \
 
 SOURCES			=	$(SRC_M)
-BONUS_FILES		=	$(SRC_B)
 
-OBJECTS			= 	$(SOURCES:.cpp=.o)
+OBJECTS			= 	$(SOURCES:%.cpp=%.o)
 
-NAME			=	Polymorphisme
+NAME			=	polymorphisme
 
 CC				=	c++
 RM				=	rm -f
 
-CFLAGS			=	-std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow
+CFLAGS			=	-std=c++98 -Wall -Wextra -Werror 
 
-.c.o:
-				$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+%.o:%.cpp		$(HEADER)
+				$(CC) $(CFLAGS) -c $< -o $(<:%.cpp=%.o)
 
 all:			$(NAME)
 

@@ -4,25 +4,24 @@ SRC_M = ClapTrap.cpp \
 		DiamondTrap.cpp \
 		main.cpp \
 
-SRC_B = 
-
-
-HEADER			=	
+HEADER			=	ClapTrap.hpp \
+					ScavTrap.hpp \
+					FragTrap.hpp \
+					DiamondTrap.hpp \
 
 SOURCES			=	$(SRC_M)
-BONUS_FILES		=	$(SRC_B)
 
-OBJECTS			= 	$(SOURCES:.cpp=.o)
+OBJECTS			= 	$(SOURCES:%.cpp=%.o)
 
-NAME			=	DiamondTrap
+NAME			=	diamondtrap
 
 CC				=	c++
 RM				=	rm -f
 
-CFLAGS			=	-std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow
+CFLAGS			=	-std=c++98 -Wall -Wextra -Werror 
 
-.c.o:
-				$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+%.o:%.cpp		$(HEADER)
+				$(CC) $(CFLAGS) -c $< -o $(<:%.cpp=%.o)
 
 all:			$(NAME)
 

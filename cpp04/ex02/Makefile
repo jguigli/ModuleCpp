@@ -6,25 +6,26 @@ SRC_M = AAnimal.cpp \
 		WrongCat.cpp \
 		main.cpp \
 
-SRC_B = 
-
-
-HEADER			=	
+HEADER			=	AAnimal.hpp \
+					Dog.hpp \
+					Cat.hpp \
+					Brain.hpp \
+					WrongAnimal.hpp \
+					WrongCat.hpp \
 
 SOURCES			=	$(SRC_M)
-BONUS_FILES		=	$(SRC_B)
 
-OBJECTS			= 	$(SOURCES:.cpp=.o)
+OBJECTS			= 	$(SOURCES:%.cpp=%.o)
 
-NAME			=	Polymorphisme
+NAME			=	polymorphisme
 
 CC				=	c++
 RM				=	rm -f
 
-CFLAGS			=	-std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow
+CFLAGS			=	-std=c++98 -Wall -Wextra -Werror 
 
-.c.o:
-				$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+%.o:%.cpp		$(HEADER)
+				$(CC) $(CFLAGS) -c $< -o $(<:%.cpp=%.o)
 
 all:			$(NAME)
 

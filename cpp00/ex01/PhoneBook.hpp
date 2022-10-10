@@ -22,7 +22,6 @@ class PhoneBook {
     private :
 
     int     index;
-    int     nbInfo;
     static int  level;
     Contact contacts[8];
 };

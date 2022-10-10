@@ -32,7 +32,7 @@ void    PhoneBook::setContact(void)
     int indexinfo = 0;
     int loop = 1;
 
-    if (this->index == 7)
+    if (this->index == 8)
         this->index = 0;
     while (loop)
     {
@@ -134,7 +134,7 @@ void    PhoneBook::chooseContact(void)
     if (str == "")
         return;
     std::stringstream(str) >> indexpb;
-    if (indexpb <= this->level && indexpb >= 0 && this->have_alpha(str))
+    if (indexpb <= this->level - 1 && indexpb >= 0 && this->have_alpha(str))
     {
         std::cout << this->contacts[indexpb].getFirstname() << '\n';
         std::cout << this->contacts[indexpb].getLastname() << '\n';
