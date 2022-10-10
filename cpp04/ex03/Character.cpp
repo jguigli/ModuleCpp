@@ -5,6 +5,11 @@ Character::Character()
 
 }
 
+Character::Character(const std::string& name) : _name(name)
+{
+
+}
+
 Character::~Character()
 {
 

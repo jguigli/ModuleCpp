@@ -8,7 +8,7 @@ Stringreplace::~Stringreplace()
 {
 }
 
-bool	Stringreplace::openFile(std::string filename)
+bool	Stringreplace::openFile(const std::string &filename)
 {
 	if (_inputFile.is_open())
 		_inputFile.close();
@@ -17,7 +17,7 @@ bool	Stringreplace::openFile(std::string filename)
 		std::cout << "File must exist" << std::endl;
 		return (false);
 	}
-	_inputFile.open(filename);
+	_inputFile.open(filename.c_str());
 	if (_inputFile)
 	{
 		_fileName = filename;
@@ -58,6 +58,6 @@ void	Stringreplace::copyToReplace()
 	std::ofstream outputFile;
 	std::string nameOutputFile = _fileName;
 	nameOutputFile += ".replace";
-	outputFile.open(nameOutputFile);
+	outputFile.open(nameOutputFile.c_str());
 	outputFile << _content;
 }

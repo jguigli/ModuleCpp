@@ -14,7 +14,6 @@ class Harl
 
 	private:
 
-	void (Harl::*_ptr)();
 	void debug();
 	void info();
 	void warning();

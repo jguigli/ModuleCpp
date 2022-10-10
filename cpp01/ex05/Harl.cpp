@@ -21,8 +21,7 @@ void	Harl::complain(std::string level)
 	{
 		if (level == array[i])
 		{
-			void (Harl::*_ptr)() = funcptr[i];
-			(this->*_ptr)();
+			(this->*funcptr[i])();
 			return;
 		}
 	}

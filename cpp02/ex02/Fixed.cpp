@@ -114,6 +114,11 @@ Fixed Fixed::operator*(Fixed const &a)
 
 Fixed Fixed::operator/(Fixed const &a)
 {
+	if (a.toFloat() == 0)
+	{
+		std::cout << "Division by zero is undefined" << std::endl;
+		return Fixed(this->toFloat());
+	}
 	return Fixed(this->toFloat() / a.toFloat());
 }
 

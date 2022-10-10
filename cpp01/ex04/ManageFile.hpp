@@ -11,7 +11,7 @@ class Stringreplace
 
 	Stringreplace();
 	~Stringreplace();
-	bool	openFile(std::string filename);
+	bool	openFile(const std::string &filename);
 	bool	replace(std::string s1, std::string s2);
 	void	copyToReplace();
 

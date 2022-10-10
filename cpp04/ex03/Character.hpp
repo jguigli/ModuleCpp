@@ -8,6 +8,7 @@ class Character : public ICharacter
 	public:
 
 	Character();
+	Character(const std::string& name);
 	virtual ~Character() {}
 	virtual std::string const & getName() const;
 	virtual void equip(AMateria* m);
@@ -18,6 +19,9 @@ class Character : public ICharacter
 	private:
 
 	std::string _name;
+	static int _indexItem;
+	AMateria *items[4];
+	AMateria *dropItems[4];
 };
 
 #endif
