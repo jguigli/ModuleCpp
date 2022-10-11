@@ -3,7 +3,7 @@
 Ice::Ice() : AMateria()
 {
 	std::cout << "Constructor Ice called" << std::endl;
-	_type = "Ice";
+	_type = "ice";
 }
 
 Ice::Ice(std::string const & type) : AMateria(type)

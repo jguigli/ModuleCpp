@@ -17,12 +17,12 @@ SOURCES			=	$(SRC_M)
 
 OBJECTS			= 	$(SOURCES:%.cpp=%.o)
 
-NAME			=	polymorphisme
+NAME			=	amateria
 
 CC				=	c++
 RM				=	rm -f
 
-CFLAGS			=	-std=c++98 -Wall -Wextra -Werror 
+CFLAGS			=	-std=c++98 -Wall -Wextra -Werror -g
 
 %.o:%.cpp		$(HEADER)
 				$(CC) $(CFLAGS) -c $< -o $(<:%.cpp=%.o)

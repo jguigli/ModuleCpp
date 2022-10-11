@@ -9,19 +9,20 @@ class Character : public ICharacter
 
 	Character();
 	Character(const std::string& name);
-	virtual ~Character() {}
+	Character(Character const& copie);
+	virtual Character& operator=(Character const &copie);
+	virtual ~Character();
+	
 	virtual std::string const & getName() const;
 	virtual void equip(AMateria* m);
 	virtual void unequip(int idx);
 	virtual void use(int idx, ICharacter& target);
-	const std::string& getName() const;
 
 	private:
 
 	std::string _name;
-	static int _indexItem;
-	AMateria *items[4];
-	AMateria *dropItems[4];
+	AMateria *_items[4];
+	AMateria *_drop[50];
 };
 
 #endif

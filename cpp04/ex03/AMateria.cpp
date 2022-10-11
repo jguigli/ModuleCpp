@@ -6,6 +6,12 @@ AMateria::AMateria()
 	_type = "AMateria";
 }
 
+AMateria::AMateria(std::string const & type)
+{
+	std::cout << "Constructor type AMateria called" << std::endl;
+	_type = type;
+}
+
 AMateria::AMateria(AMateria const& copie)
 {
 	std::cout << "Constructor copy AMateria called" << std::endl;
