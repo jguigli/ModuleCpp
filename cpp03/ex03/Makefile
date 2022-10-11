@@ -18,7 +18,7 @@ NAME			=	diamondtrap
 CC				=	c++
 RM				=	rm -f
 
-CFLAGS			=	-std=c++98 -Wall -Wextra -Werror -g -D_GLIBCXX_DEBUG
+CFLAGS			=	-std=c++98 -Wall -Wextra -Werror
 
 %.o:%.cpp		$(HEADER)
 				$(CC) $(CFLAGS) -c $< -o $(<:%.cpp=%.o)
