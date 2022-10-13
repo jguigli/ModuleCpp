@@ -17,5 +17,8 @@ const std::string& Weapon::getType(void) const
 
 void	Weapon::setType(std::string value)
 {
-	_type = value;
+	if (value == "")
+		std::cout << "Weapon must have an existing name" << std::endl;
+	else
+		_type = value;
 }

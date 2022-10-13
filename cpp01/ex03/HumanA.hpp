@@ -11,7 +11,7 @@ class HumanA {
 	~HumanA(void);
 	
 	void	attack(void);
-	Weapon&	getWeapon(void) const;
+	Weapon	getWeapon(void) const;
 
 	private:
 

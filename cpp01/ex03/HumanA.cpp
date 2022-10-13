@@ -15,7 +15,7 @@ void	HumanA::attack(void)
 	std::cout << this->_name << " attack with their " << this->_weapon.getType() << std::endl;
 }
 
-Weapon&	HumanA::getWeapon(void) const
+Weapon	HumanA::getWeapon(void) const
 {
 	return (this->_weapon);
 }
