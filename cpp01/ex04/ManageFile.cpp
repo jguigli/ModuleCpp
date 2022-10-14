@@ -14,7 +14,7 @@ bool	Stringreplace::openFile(const std::string &filename)
 		_inputFile.close();
 	if (filename == "")
 	{
-		std::cout << "File must exist" << std::endl;
+		std::cerr << "File must exist" << std::endl;
 		return (false);
 	}
 	_inputFile.open(filename.c_str());

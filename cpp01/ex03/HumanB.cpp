@@ -25,8 +25,3 @@ void	HumanB::setWeapon(Weapon& weapon)
 	else	
 		_weapon = &weapon;
 }
-
-Weapon&	HumanB::getWeapon(void) const
-{
-	return (*(_weapon));
-}
