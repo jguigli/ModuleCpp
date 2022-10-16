@@ -33,23 +33,12 @@ Converter::~Converter()
 
 const char* Converter::ImpossibleValue::what() const throw()
 {
-	return ("The grade is too high.");
-}
-
-const char* Converter::GradeTooLowException::what() const throw()
-{
-	return ("The grade is too low.");
+	return ("Impossible value : This value cannot be cast");
 }
 
 void Converter::execute()
 {
-	if (getType(_str))
-		std::cout << "OK type = " << _type << std::endl;
-	else
-	{
-		std::cout << "KO" << std::endl;
-		return;
-	}
+	getType(_str);
 	convertType();
 	printChar();
 	printInt();
@@ -71,7 +60,7 @@ bool Converter::getType(std::string &str)
 	else if (isADouble(str))
 		_type = Converter::_typeDouble;
 	if (_type == Converter::_typeNot)
-		return false;
+		throw Converter::ImpossibleValue();
 	return true;
 }
 
@@ -146,16 +135,16 @@ void Converter::convertType()
 {
 	switch (_type)
 	{
-	case 1:
+	case _typeChar:
 		_valueTypeChar = _str[0];
 		break;
-	case 2:
+	case _typeInt:
 		_valueTypeInt = atoi(_str.c_str());
 		break;
-	case 3:
+	case _typeFloat:
 		_valueTypeFloat = strtof(_str.c_str(), NULL);
 		break;
-	case 4:
+	case _typeDouble:
 		_valueTypeDouble = atof(_str.c_str());
 		break;
 	default:
@@ -167,18 +156,18 @@ void Converter::printChar()
 {
 	switch (_type)
 	{
-	case 1:
+	case _typeChar:
 		std::cout << "Char: " << _valueTypeChar << std::endl;
 		break;
-	case 2:
+	case _typeInt:
 		if (checkConvertChar(_valueTypeInt))
 			std::cout << "Char: " << static_cast<char>(_valueTypeInt) << std::endl;
 		break;
-	case 3:
+	case _typeFloat:
 		if (checkConvertChar(_valueTypeFloat))
 			std::cout << "Char: " << static_cast<char>(_valueTypeFloat) << std::endl;
 		break;
-	case 4:
+	case _typeDouble:
 		if (checkConvertChar(_valueTypeDouble))
 			std::cout << "Char: " << static_cast<char>(_valueTypeDouble) << std::endl;
 		break;
@@ -191,17 +180,18 @@ void Converter::printInt()
 {
 	switch (_type)
 	{
-	case 1:
+	case _typeChar:
 		std::cout << "Int: " << static_cast<int>(_valueTypeChar) << std::endl;
 		break;
-	case 2:
-		std::cout << "Int: " << _valueTypeInt << std::endl;
+	case _typeInt:
+		if (checkConvertInt(_valueTypeInt))
+			std::cout << "Int: " << _valueTypeInt << std::endl;
 		break;
-	case 3:
+	case _typeFloat:
 		if (checkConvertInt(_valueTypeFloat))
 			std::cout << "Int: " << static_cast<int>(_valueTypeFloat) << std::endl;
 		break;
-	case 4:
+	case _typeDouble:
 		if (checkConvertInt(_valueTypeDouble))
 			std::cout << "Int: " << static_cast<int>(_valueTypeDouble) << std::endl;
 		break;
@@ -214,16 +204,16 @@ void Converter::printFloat()
 {
 	switch (_type)
 	{
-	case 1:
+	case _typeChar:
 		std::cout << "Float: " << static_cast<float>(_valueTypeChar) << ".0f" << std::endl;
 		break;
-	case 2:
+	case _typeInt:
 		std::cout << "Float: " << static_cast<float>(_valueTypeInt) << ".0f" << std::endl;
 		break;
-	case 3:
+	case _typeFloat:
 		std::cout << "Float: " << _valueTypeFloat << printZeroDoubleFloat(_valueTypeFloat) << "f" << std::endl;
 		break;
-	case 4:
+	case _typeDouble:
 		std::cout << "Float: " << static_cast<float>(_valueTypeDouble) << printZeroDoubleFloat(static_cast<double>(_valueTypeDouble)) << "f" << std::endl;
 		break;
 	default:
@@ -235,16 +225,16 @@ void Converter::printDouble()
 {
 	switch (_type)
 	{
-	case 1:
+	case _typeChar:
 		std::cout << "Double: " << static_cast<double>(_valueTypeChar) << ".0" << std::endl;
 		break;
-	case 2:
+	case _typeInt:
 		std::cout << "Double: " << static_cast<double>(_valueTypeInt) << ".0" << std::endl;
 		break;
-	case 3:
+	case _typeFloat:
 		std::cout << "Double: " << static_cast<double>(_valueTypeFloat) << printZeroDoubleFloat(static_cast<double>(_valueTypeFloat)) << std::endl;
 		break;
-	case 4:
+	case _typeDouble:
 		std::cout << "Double: " << _valueTypeDouble << printZeroDoubleFloat(_valueTypeDouble) << std::endl;
 		break;
 	default:
@@ -274,9 +264,14 @@ bool Converter::checkConvertChar(double n)
 	return true;
 }
 
-bool Converter::checkConvertInt(double n) // check overflow (mais atoi l'efface)
+bool Converter::checkConvertInt(double n)
 {
 	if (n != n || n > std::numeric_limits<int>::max() || n < std::numeric_limits<int>::min())
+	{
+		std::cout << "Int: Impossible" << std::endl;
+		return false;
+	}
+	if ((_str[0] == '-' && n > 0) || (_str[0] != '-' && n < 0))
 	{
 		std::cout << "Int: Impossible" << std::endl;
 		return false;
@@ -284,8 +279,9 @@ bool Converter::checkConvertInt(double n) // check overflow (mais atoi l'efface)
 	return true;
 }
 
-bool checkConvertFloat(double n) // check overflow
+bool Converter::checkConvertFloat(double n) // check overflow
 {
+	std::cout << _str[0] << " " << n << std::endl;
 	if (n != n || n > std::numeric_limits<float>::max() || n < std::numeric_limits<float>::min())
 	{
 		std::cout << "Float: Impossible" << std::endl;

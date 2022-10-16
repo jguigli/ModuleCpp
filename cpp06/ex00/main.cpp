@@ -8,10 +8,16 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		Converter convert(argv[1]);
-		convert.execute();
+		try
+		{
+			Converter convert(argv[1]);
+			convert.execute();
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+			return 1;
+		}
 	}
-
-
 	return 0;
 }

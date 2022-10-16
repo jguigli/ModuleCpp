@@ -22,12 +22,6 @@ class Converter
 		public:
 			virtual const char* what() const throw();
 	};
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			virtual const char* what() const throw();
-	};
-
 
 	private:
 	
@@ -47,6 +41,7 @@ class Converter
 	const char *printZeroDoubleFloat(double n);
 	bool checkConvertChar(double n);
 	bool checkConvertInt(double n);
+	bool checkConvertFloat(double n);
 
 	std::string _str;
 	int _type;
