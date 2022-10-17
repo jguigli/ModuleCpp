@@ -47,8 +47,8 @@ class Converter
 	int _type;
 
 	char _valueTypeChar;
-	int _valueTypeInt;
-	float _valueTypeFloat;
+	double _valueTypeInt;
+	double _valueTypeFloat;
 	double _valueTypeDouble;
 
 	static const int _typeChar = 1;

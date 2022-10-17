@@ -139,10 +139,10 @@ void Converter::convertType()
 		_valueTypeChar = _str[0];
 		break;
 	case _typeInt:
-		_valueTypeInt = atoi(_str.c_str());
+		_valueTypeInt = atof(_str.c_str());
 		break;
 	case _typeFloat:
-		_valueTypeFloat = strtof(_str.c_str(), NULL);
+		_valueTypeFloat = atof(_str.c_str());
 		break;
 	case _typeDouble:
 		_valueTypeDouble = atof(_str.c_str());
@@ -185,7 +185,7 @@ void Converter::printInt()
 		break;
 	case _typeInt:
 		if (checkConvertInt(_valueTypeInt))
-			std::cout << "Int: " << _valueTypeInt << std::endl;
+			std::cout << "Int: " << static_cast<int>(_valueTypeInt) << std::endl;
 		break;
 	case _typeFloat:
 		if (checkConvertInt(_valueTypeFloat))
@@ -208,13 +208,16 @@ void Converter::printFloat()
 		std::cout << "Float: " << static_cast<float>(_valueTypeChar) << ".0f" << std::endl;
 		break;
 	case _typeInt:
-		std::cout << "Float: " << static_cast<float>(_valueTypeInt) << ".0f" << std::endl;
+		if (checkConvertFloat(_valueTypeInt))
+			std::cout << "Float: " << static_cast<float>(_valueTypeInt) << ".0f" << std::endl;
 		break;
 	case _typeFloat:
-		std::cout << "Float: " << _valueTypeFloat << printZeroDoubleFloat(_valueTypeFloat) << "f" << std::endl;
+		if (checkConvertFloat(_valueTypeFloat))
+			std::cout << "Float: " << static_cast<float>(_valueTypeFloat) << printZeroDoubleFloat(_valueTypeFloat) << "f" << std::endl;
 		break;
 	case _typeDouble:
-		std::cout << "Float: " << static_cast<float>(_valueTypeDouble) << printZeroDoubleFloat(static_cast<double>(_valueTypeDouble)) << "f" << std::endl;
+		if (checkConvertFloat(_valueTypeDouble))
+			std::cout << "Float: " << static_cast<float>(_valueTypeDouble) << printZeroDoubleFloat(static_cast<double>(_valueTypeDouble)) << "f" << std::endl;
 		break;
 	default:
 		break;
@@ -271,23 +274,29 @@ bool Converter::checkConvertInt(double n)
 		std::cout << "Int: Impossible" << std::endl;
 		return false;
 	}
-	if ((_str[0] == '-' && n > 0) || (_str[0] != '-' && n < 0))
-	{
-		std::cout << "Int: Impossible" << std::endl;
-		return false;
-	}
 	return true;
 }
 
-bool Converter::checkConvertFloat(double n) // check overflow
+bool Converter::checkConvertFloat(double n)
 {
-	std::cout << _str[0] << " " << n << std::endl;
-	if (n != n || n > std::numeric_limits<float>::max() || n < std::numeric_limits<float>::min())
+	std::cout << "n = " << n << std::endl;
+	std::cout << "max = " << std::numeric_limits<float>::max() << std::endl;
+	std::cout << "min = " << std::numeric_limits<float>::min() << std::endl;
+	// if ((n > std::numeric_limits<float>::max() || n < std::numeric_limits<float>::min()))
+	// {
+	// 	std::cout << "Float: Impossible" << std::endl;
+	// 	return false;
+	// }
+	// return true;
+	if ((n <= std::numeric_limits<float>::max()
+			&& n >= -std::numeric_limits<float>::max())
+			|| n == std::numeric_limits<double>::infinity()
+			|| n == -std::numeric_limits<double>::infinity()
+			|| n == n)
 	{
-		std::cout << "Float: Impossible" << std::endl;
-		return false;
+		return true;
 	}
-	return true;
+	return false;
 }
 
 int Converter::specialValue(std::string &str)
