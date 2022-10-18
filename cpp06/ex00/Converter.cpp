@@ -279,30 +279,22 @@ bool Converter::checkConvertInt(double n)
 
 bool Converter::checkConvertFloat(double n)
 {
-	std::cout << "n = " << n << std::endl;
-	std::cout << "max = " << std::numeric_limits<float>::max() << std::endl;
-	std::cout << "min = " << std::numeric_limits<float>::min() << std::endl;
-	// if ((n > std::numeric_limits<float>::max() || n < std::numeric_limits<float>::min()))
-	// {
-	// 	std::cout << "Float: Impossible" << std::endl;
-	// 	return false;
-	// }
-	// return true;
 	if ((n <= std::numeric_limits<float>::max()
-			&& n >= -std::numeric_limits<float>::max())
-			|| n == std::numeric_limits<double>::infinity()
-			|| n == -std::numeric_limits<double>::infinity()
-			|| n == n)
+		&& n >= -std::numeric_limits<float>::max())
+		|| n == std::numeric_limits<double>::infinity()
+		|| n == -std::numeric_limits<double>::infinity()
+		|| n != n)
 	{
 		return true;
 	}
+	std::cout << "Float: Impossible" << std::endl;
 	return false;
 }
 
 int Converter::specialValue(std::string &str)
 {
-	std:: string floatSv[] = {"+inff", "-inff", "nanf"};
-	std:: string doubleSv[] = {"+inf", "-inf", "nan"};
+	std::string floatSv[] = {"+inff", "-inff", "nanf"};
+	std::string doubleSv[] = {"+inf", "-inf", "nan"};
 
 	for (int i = 0; i < 3; i++)
 	{
