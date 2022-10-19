@@ -75,5 +75,5 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << _name << " have " << _hitPoint << " of hit points now" << std::endl;
 	}
 	else
-		std::cout << _name << " can't attack, he is dead or out of energy" << std::endl;
+		std::cout << _name << " can't repair, he is dead or out of energy" << std::endl;
 }

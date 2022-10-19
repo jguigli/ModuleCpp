@@ -1,4 +1,5 @@
-SRC_M = A.cpp \
+SRC_M = Base.cpp \
+		A.cpp \
 		B.cpp \
 		C.cpp \
 		main.cpp \
