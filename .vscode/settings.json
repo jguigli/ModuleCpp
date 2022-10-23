@@ -52,6 +52,7 @@
 		"compare": "cpp",
 		"concepts": "cpp",
 		"ranges": "cpp",
-		"numbers": "cpp"
+		"numbers": "cpp",
+		"*.tpp": "cpp"
 	}
 }
