@@ -9,7 +9,7 @@ WrongAnimal::WrongAnimal()
 WrongAnimal::WrongAnimal(WrongAnimal const& copie)
 {
 	std::cout << "Constructor copy WrongAnimal called" << std::endl;
-	_type = copie.getType();
+	*this = copie;
 }
 
 WrongAnimal& WrongAnimal::operator=(WrongAnimal const &copie)

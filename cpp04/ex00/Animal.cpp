@@ -9,7 +9,7 @@ Animal::Animal()
 Animal::Animal(Animal const& copie)
 {
 	std::cout << "Constructor copy Animal called" << std::endl;
-	_type = copie.getType();
+	*this = copie;
 }
 
 Animal& Animal::operator=(Animal const &copie)

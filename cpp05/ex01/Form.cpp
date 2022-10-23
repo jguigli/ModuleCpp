@@ -16,7 +16,7 @@ Form::Form(const std::string name, const int gts, const int gte) : _name(name), 
 
 Form::Form(Form const& copie) : _name(copie.getName()), _gradeToSign(copie.getGradeTosign()), _gradeToExec(copie.getGradeToExec())
 {
-	_signed = copie.isSigned();
+	*this = copie;
 }
 
 Form& Form::operator=(Form const &copie)

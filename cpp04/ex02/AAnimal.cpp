@@ -9,7 +9,7 @@ AAnimal::AAnimal()
 AAnimal::AAnimal(AAnimal const& copie)
 {
 	std::cout << "Constructor copy AAnimal called" << std::endl;
-	_type = copie.getType();
+	*this = copie;
 }
 
 AAnimal& AAnimal::operator=(AAnimal const &copie)

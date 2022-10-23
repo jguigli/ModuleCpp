@@ -10,19 +10,7 @@ MateriaSource::MateriaSource()
 MateriaSource::MateriaSource(MateriaSource const& copie)
 {
 	std::cout << "Constructor copy MateriaSource called" << std::endl;
-	for (int i = 0; i < 4; i++)
-	{
-		if (_items[i])
-		{
-			delete _items[i];
-			_items[i] = NULL;
-		}
-	}
-	for (int i = 0; i < 4; i++)
-	{
-		if (copie._items[i])
-			_items[i] = copie._items[i]->clone();
-	}
+	*this = copie;
 }
 
 MateriaSource& MateriaSource::operator=(MateriaSource const &copie)

@@ -21,20 +21,7 @@ Character::Character(const std::string& name) : _name(name)
 Character::Character(Character const& copie)
 {
 	std::cout << "Constructor copy Character called" << std::endl;
-	_name = copie._name;
-	for (int i = 0; i < 4; i++)
-	{
-		if (_items[i])
-		{
-			delete _items[i];
-			_items[i] = NULL;
-		}
-	}
-	for (int i = 0; i < 4; i++)
-	{
-		if (copie._items[i])
-			_items[i] = copie._items[i]->clone();
-	}
+	*this = copie;
 }
 
 Character& Character::operator=(Character const &copie)
