@@ -1,12 +1,13 @@
 SRC_M = main.cpp \
+		Span.cpp \
 
-HEADER			=	easyfind.hpp \
+HEADER			=	Span.hpp \
 
 SOURCES			=	$(SRC_M)
 
 OBJECTS			= 	$(SOURCES:%.cpp=%.o)
 
-NAME			=	stl
+NAME			=	span
 
 CC				=	c++
 RM				=	rm -f

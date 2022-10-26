@@ -23,8 +23,14 @@ class Span
 	Span &operator=(const Span &copie);
 
 	void addNumber(int);
-	void shortestSpan();
-	void longestSpan();
+	int shortestSpan();
+	int longestSpan();
+
+	class SizeMax : public std::exception
+	{
+		public:
+			virtual const char* what() const throw();
+	};
 
 	private:
 

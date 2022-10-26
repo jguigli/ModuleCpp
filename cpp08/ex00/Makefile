@@ -6,7 +6,7 @@ SOURCES			=	$(SRC_M)
 
 OBJECTS			= 	$(SOURCES:%.cpp=%.o)
 
-NAME			=	stl
+NAME			=	easyfind
 
 CC				=	c++
 RM				=	rm -f
