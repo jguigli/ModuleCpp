@@ -36,13 +36,25 @@ void Span::addNumber(int nb)
 		_stock.push_back(nb);
 	}
 	else
-		throw SizeMax();
+		throw Span::SizeMax();
 }
 
-// int Span::shortestSpan()
-// {
-
-// }
+int Span::shortestSpan()
+{
+	int span = Span::longestSpan();
+	std::sort(_stock.begin(), _stock.end());
+	std::vector<int>::iterator it = _stock.begin();
+	int temp = 0;
+	int tempp = *it++;
+	for (; it != _stock.end(); ++it)
+	{
+		temp = *it;
+		if (temp - tempp < span)
+			span = temp - tempp;
+		tempp = temp;
+	}
+	return span;
+}
 
 int Span::longestSpan()
 {
