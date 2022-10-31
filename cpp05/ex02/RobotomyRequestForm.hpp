@@ -12,7 +12,7 @@ class RobotomyRequestForm : public Form
 {
 	public:
 
-	RobotomyRequestForm(std::string &target);
+	RobotomyRequestForm(std::string target);
 	RobotomyRequestForm(RobotomyRequestForm const& copie);
 	virtual RobotomyRequestForm& operator=(RobotomyRequestForm const &copie);
 	virtual ~RobotomyRequestForm();

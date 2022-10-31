@@ -12,7 +12,7 @@ Cure::Cure(std::string const & type) : AMateria(type)
 	_type = type;
 }
 
-Cure::Cure(Cure const& copie)
+Cure::Cure(Cure const& copie) : AMateria(copie)
 {
 	std::cout << "Constructor copy Cure called" << std::endl;
 	*this = copie;

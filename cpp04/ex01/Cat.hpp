@@ -10,7 +10,6 @@ class Cat: public virtual Animal
 	public:
 
 	Cat();
-	Cat(std::string name);
 	Cat(Cat const& copie);
 	Cat& operator=(Cat const &copie);
 	virtual Animal& operator=(Animal const &copie);

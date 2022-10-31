@@ -9,7 +9,6 @@ class Brain
 	public:
 
 	Brain();
-	Brain(std::string name);
 	Brain(Brain const& copie);
 	Brain& operator=(Brain const &copie);
 	virtual ~Brain();

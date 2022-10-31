@@ -7,7 +7,7 @@ Dog::Dog() : AAnimal()
 	_brain = new Brain();
 }
 
-Dog::Dog(Dog const& copie)
+Dog::Dog(Dog const& copie) : AAnimal(copie)
 {
 	std::cout << "Constructor copy Dog called" << std::endl;
 	*this = copie;

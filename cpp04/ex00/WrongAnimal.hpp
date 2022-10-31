@@ -9,7 +9,6 @@ class WrongAnimal
 	public:
 
 	WrongAnimal();
-	WrongAnimal(std::string name);
 	WrongAnimal(WrongAnimal const& copie);
 	WrongAnimal& operator=(WrongAnimal const &copie);
 	virtual ~WrongAnimal();

@@ -10,7 +10,6 @@ class Dog: public virtual AAnimal
 	public:
 
 	Dog();
-	Dog(std::string name);
 	Dog(Dog const& copie);
 	Dog& operator=(Dog const &copie);
 	virtual AAnimal& operator=(AAnimal const &copie);

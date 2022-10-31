@@ -10,7 +10,6 @@ class WrongCat: public WrongAnimal
 	public:
 
 	WrongCat();
-	WrongCat(std::string name);
 	WrongCat(WrongCat const& copie);
 	WrongCat& operator=(WrongCat const &copie);
 	virtual ~WrongCat();

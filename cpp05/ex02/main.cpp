@@ -22,16 +22,21 @@ int main()
 		std::cerr << e.what() << std::endl;
 	}
 
-	// try
-	// {
-	// 	Bureaucrat two("phil", 151);
-	// 	std::cout << two << std::endl;
-	// 	two.addGrade(7);
-	// 	std::cout << two << std::endl;
-	// }
-	// catch(std::exception& e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
+	try
+	{
+		Bureaucrat two("phil", 24);
+		Bureaucrat three("pierre", 8);
+		PresidentialPardonForm ok("sarko");
+
+		ok.beSigned(two);
+		std::cout << two << std::endl;
+		three.addGrade(7);
+		std::cout << three << std::endl;
+		ok.execute(three);
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	
 }
