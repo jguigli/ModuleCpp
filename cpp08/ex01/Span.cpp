@@ -26,7 +26,6 @@ Span& Span::operator=(Span const &copie)
 
 Span::~Span()
 {
-
 }
 
 void Span::addNumber(int nb)
@@ -37,6 +36,15 @@ void Span::addNumber(int nb)
 	}
 	else
 		throw Span::SizeMax();
+}
+
+void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	std::vector<int> tmp(begin, end);
+
+	if (Span::getMaxSize() - Span::getSize() < tmp.size())
+		throw Span::SizeMax();
+	std::copy(begin, end, std::back_inserter(_stock));
 }
 
 int Span::shortestSpan()
@@ -66,4 +74,14 @@ int Span::longestSpan()
 const char* Span::SizeMax::what() const throw()
 {
 	return ("The max size of span has been reached."); 
+}
+
+size_t	Span::getSize() const
+{
+	return _stock.size();
+}
+
+size_t Span::getMaxSize() const
+{
+	return _maxSize;
 }

@@ -23,8 +23,11 @@ class Span
 	Span &operator=(const Span &copie);
 
 	void addNumber(int);
+	void addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 	int shortestSpan();
 	int longestSpan();
+	size_t	getSize() const;
+	size_t getMaxSize() const;
 
 	class SizeMax : public std::exception
 	{
