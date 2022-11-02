@@ -34,4 +34,5 @@ Form* Intern::makeForm(std::string form, std::string targetform)
 	default:
 		break;
 	}
+	return NULL;
 }

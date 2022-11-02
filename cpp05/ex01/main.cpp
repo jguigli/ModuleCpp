@@ -29,10 +29,15 @@ int main()
 
 	try
 	{
-		Bureaucrat two("phil", 151);
+		Bureaucrat two("phil", 51);
+		Form formone("Dossier Sogipec", 42, 53);
+
 		std::cout << two << std::endl;
-		two.addGrade(7);
+		two.addGrade(10);
 		std::cout << two << std::endl;
+		std::cout << formone << std::endl;
+		formone.beSigned(two);
+		two.signForm(formone);
 	}
 	catch(std::exception& e)
 	{

@@ -1,5 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 
+
 RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 72, 45), _target("")
 {
 
@@ -36,15 +37,14 @@ std::string RobotomyRequestForm::getTarget() const
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	static int luck;
 	if (checkExec(executor))
 	{
 		std::cout << "* drill sound heard *\n";
-		if (luck % 2)
-		{
+		srand((unsigned)time(0));
+		if ((std::rand() % 2) % 2)
 			std::cout << _target << " has been robotomized." << std::endl;
-			luck++;
-		}
+		else
+			std::cout << "Operation of robotomization failed." << std::endl;
 	}
 	else
 		throw RobotomyRequestForm::NotSignException();

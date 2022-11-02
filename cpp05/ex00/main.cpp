@@ -8,7 +8,7 @@ int main()
 		Bureaucrat one("fred", 6);
 
 		std::cout << one << std::endl;
-		one.addGrade(7);
+		one.addGrade(5);
 		std::cout << one << std::endl;
 	}
 	catch (std::exception & e)

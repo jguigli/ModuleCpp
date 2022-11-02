@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -9,11 +10,16 @@ int main()
 	try
 	{
 		Bureaucrat one("Fred", 5);
-		ShrubberyCreationForm ok("jean paul");
+		Intern two;
+		Form *ptr;
 
-		ok.beSigned(one);
-		ok.execute(one);
 		std::cout << one << std::endl;
+		ptr = two.makeForm("shrubbery creation", "New form by intern");
+		if (!ptr)
+			return 1;
+		ptr->beSigned(one);
+		ptr->execute(one);
+		std::cout << *ptr << std::endl;
 		one.addGrade(1);
 		std::cout << one << std::endl;
 	}
@@ -22,16 +28,25 @@ int main()
 		std::cerr << e.what() << std::endl;
 	}
 
-	// try
-	// {
-	// 	Bureaucrat two("phil", 151);
-	// 	std::cout << two << std::endl;
-	// 	two.addGrade(7);
-	// 	std::cout << two << std::endl;
-	// }
-	// catch(std::exception& e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	
+	try
+	{
+		Bureaucrat one("Fred", 44);
+		Intern two;
+		Form *ptr;
+
+		std::cout << one << std::endl;
+		ptr = two.makeForm("robotomy request", "New form by intern");
+		if (!ptr)
+			return 1;
+		ptr->beSigned(one);
+		ptr->execute(one);
+		std::cout << *ptr << std::endl;
+		one.addGrade(20);
+		std::cout << one << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	return 0;
 }

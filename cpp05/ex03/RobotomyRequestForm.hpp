@@ -5,6 +5,8 @@
 #include <iomanip>
 #include <string>
 #include <stdexcept>
+#include <cstdlib> 
+#include <ctime>
 #include "Form.hpp"
 
 class Bureaucrat;

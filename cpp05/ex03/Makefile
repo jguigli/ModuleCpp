@@ -3,11 +3,13 @@ SRC_M = Bureaucrat.cpp \
 		PresidentialPardonForm.cpp \
 		ShrubberyCreationForm.cpp \
 		RobotomyRequestForm.cpp \
+		Intern.cpp \
 		main.cpp \
 		
 
 HEADER			=	Bureaucrat.hpp \
 					Form.hpp \
+					Intern.hpp \
 					PresidentialPardonForm.hpp \
 					ShrubberyCreationForm.hpp \
 					RobotomyRequestForm.hpp \

@@ -14,8 +14,10 @@ int main()
 		ok.beSigned(one);
 		ok.execute(one);
 		std::cout << one << std::endl;
+		std::cout << ok << std::endl;
 		one.addGrade(1);
 		std::cout << one << std::endl;
+		one.signForm(ok);
 	}
 	catch (std::exception & e)
 	{
@@ -30,6 +32,7 @@ int main()
 
 		ok.beSigned(two);
 		std::cout << two << std::endl;
+		std::cout << ok << std::endl;
 		three.addGrade(7);
 		std::cout << three << std::endl;
 		ok.execute(three);
