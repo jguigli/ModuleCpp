@@ -54,6 +54,7 @@
 		"ranges": "cpp",
 		"numbers": "cpp",
 		"*.tpp": "cpp",
-		"list": "cpp"
+		"list": "cpp",
+		"map": "cpp"
 	}
 }
