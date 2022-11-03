@@ -76,6 +76,8 @@ bool Converter::isAnInteger(std::string& str)
 	size_t i = 0;
 	if (str[0] == '+' || str[0] == '-')
 		i++;
+	if (!str[i])
+		return false;
 	for (; i < str.length(); i++)
 	{
 		if (!isdigit(str[i]))
