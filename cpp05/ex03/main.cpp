@@ -15,17 +15,17 @@ int main()
 
 		std::cout << one << std::endl;
 		ptr = two.makeForm("shrubbery creation", "New form by intern");
-		if (!ptr)
-			return 1;
 		ptr->beSigned(one);
 		ptr->execute(one);
 		std::cout << *ptr << std::endl;
 		one.addGrade(1);
 		std::cout << one << std::endl;
+		delete ptr;
 	}
 	catch (std::exception & e)
 	{
 		std::cerr << e.what() << std::endl;
+		return 1;
 	}
 
 	try
@@ -36,17 +36,17 @@ int main()
 
 		std::cout << one << std::endl;
 		ptr = two.makeForm("robotomy request", "New form by intern");
-		if (!ptr)
-			return 1;
 		ptr->beSigned(one);
 		ptr->execute(one);
 		std::cout << *ptr << std::endl;
 		one.addGrade(20);
 		std::cout << one << std::endl;
+		delete ptr;
 	}
 	catch(std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
+		return 1;
 	}
 	return 0;
 }

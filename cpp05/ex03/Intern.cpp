@@ -10,29 +10,24 @@ Intern::~Intern()
 
 }
 
+const char* Intern::FormNotFound::what() const throw()
+{
+	return ("The Form mentionned in makeForm don't exist.");
+}
+
 Form* Intern::makeForm(std::string form, std::string targetform)
 {
 	std::string formarray[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
-	int index = -1;
-
+	Form *ptr[3] = {new PresidentialPardonForm(targetform), new RobotomyRequestForm(targetform), new ShrubberyCreationForm(targetform)};
+	Form *retour = NULL;
 	for (int i = 0; i < 3; i++)
 	{
 		if (formarray[i] == form)
-		index = i;
+			retour = ptr[i];
+		else
+			delete ptr[i];
 	}
-	switch (index)
-	{
-	case 0:
-		return (new PresidentialPardonForm(targetform));
-		break;
-	case 1:
-		return (new RobotomyRequestForm(targetform));
-		break;
-	case 2:
-		return (new ShrubberyCreationForm(targetform));
-		break;
-	default:
-		break;
-	}
-	return NULL;
+	if (retour)
+		return retour;
+	throw Intern::FormNotFound();
 }

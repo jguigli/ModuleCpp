@@ -19,6 +19,11 @@ class Intern
 
 	Form* makeForm(std::string form, std::string targetform);
 
+	class FormNotFound : public std::exception
+	{
+		public:
+			virtual const char* what() const throw();
+	};
 };
 
 #endif
