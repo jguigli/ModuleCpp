@@ -9,7 +9,7 @@ SOURCES			=	$(SRC_M)
 
 OBJECTS			= 	$(SOURCES:%.cpp=%.o)
 
-NAME			=	converter
+NAME			=	convert
 
 CC				=	c++
 RM				=	rm -f

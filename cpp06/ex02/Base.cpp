@@ -9,8 +9,6 @@ Base::~Base()
 
 Base * generate(void)
 {
-	int val = 0;
-
 	srand((unsigned int)time(0));
 	val = rand();
 	switch (val % 3)
