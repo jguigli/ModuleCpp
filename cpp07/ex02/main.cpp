@@ -54,14 +54,6 @@ int main(int, char**)
     }
     try
     {
-        Array<int> nb(-1000000000);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
         Array<int> nb(0);
     }
     catch(const std::exception& e)

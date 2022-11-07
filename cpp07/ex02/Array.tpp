@@ -10,10 +10,13 @@ Array<T>::Array(void)
 template < typename T >
 Array<T>::Array(unsigned int n)
 {
-	if (n < 1 || n > INT_MAX)
+	if (n > INT_MAX)
 		throw std::overflow_error("Wrong size");
 	_size = n;
-	_content = new T[_size];
+	if (n == 0)
+		_content = NULL;
+	else
+		_content = new T[_size];
 }
 
 template < typename T >

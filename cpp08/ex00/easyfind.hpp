@@ -8,7 +8,6 @@
 #include <algorithm>
 #include <vector>
 #include <deque>
-#include <stack>
 #include <list>
 #include <typeinfo>
 
