@@ -10,7 +10,7 @@ Array<T>::Array(void)
 template < typename T >
 Array<T>::Array(unsigned int n)
 {
-	if (n < 0)
+	if (n < 1 || n > INT_MAX)
 		throw std::overflow_error("Wrong size");
 	_size = n;
 	_content = new T[_size];
@@ -45,7 +45,7 @@ template < typename T >
 T& Array<T>::operator[](int index) const
 {
 	if (index >= _size || index < 0)
-		throw std::overflow_error("Wrong size");
+		throw std::overflow_error("Wrong index format");
 	return _content[index];
 }
 

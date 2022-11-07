@@ -7,6 +7,7 @@ int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
+
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -14,12 +15,6 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
-
     for (int i = 0; i < MAX_VAL; i++)
     {
         if (mirror[i] != numbers[i])
@@ -28,6 +23,19 @@ int main(int, char**)
             return 1;
         }
     }
+    {
+        std::cout << "\nTEST copie" << std::endl;
+
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+
+        std::cout << "Number = " << numbers[5] << "\nTmp = " << tmp[5] << "\nTest = " << test[5] << std::endl;
+        tmp[5] = 4;
+        test[5] = 14;
+        std::cout << "Number = " << numbers[5] << "\nTmp = " << tmp[5] << "\nTest = " << test[5] << std::endl;
+    }
+
+    std::cout << "\nTEST mauvais index" << std::endl;
     try
     {
         numbers[-2] = 0;
@@ -44,11 +52,22 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
-
-    for (int i = 0; i < MAX_VAL; i++)
+    try
     {
-        numbers[i] = rand();
+        Array<int> nb(-1000000000);
     }
-    delete [] mirror;//
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        Array<int> nb(0);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    delete [] mirror;
     return 0;
 }

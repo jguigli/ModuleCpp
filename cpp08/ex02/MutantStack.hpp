@@ -16,11 +16,15 @@ template<typename T>
 class MutantStack : public std::stack<T>
 {
 	public:
-		MutantStack() {}
-		MutantStack(const MutantStack<T>& src)
+		MutantStack()
 		{
-			*this = src; 
 		}
+
+		MutantStack(const MutantStack<T>& copie)
+		{
+			*this = copie; 
+		}
+
 		MutantStack<T>& operator=(const MutantStack<T>& copie) 
 		{
 			if (this != &copie)
@@ -29,7 +33,10 @@ class MutantStack : public std::stack<T>
 			}
 			return *this;
 		}
-		~MutantStack() {}
+
+		~MutantStack()
+		{
+		}
 
 		typedef typename std::stack<T>::container_type::iterator iterator;
 
