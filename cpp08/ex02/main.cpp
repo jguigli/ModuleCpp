@@ -10,6 +10,7 @@ int main()
 	mstack.pop();
 	std::cout << mstack.size() << std::endl;
 	std::cout << std::endl;
+
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
@@ -25,6 +26,5 @@ int main()
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::stack<int> s(mstack);
 	return 0;
 }

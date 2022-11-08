@@ -10,7 +10,7 @@ Base::~Base()
 Base * generate(void)
 {
 	srand((unsigned int)time(0));
-	val = rand();
+	int val = rand();
 	switch (val % 3)
 	{
 	case 0:

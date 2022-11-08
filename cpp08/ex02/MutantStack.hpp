@@ -42,11 +42,11 @@ class MutantStack : public std::stack<T>
 
 		iterator begin()
 		{
-			return this->c.begin();
+			return std::stack<T>::c.begin();
 		}
 		iterator end()
 		{
-			return this->c.end();
+			return std::stack<T>::c.end();
 		}
 };
 

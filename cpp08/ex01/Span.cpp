@@ -48,7 +48,9 @@ void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator
 }
 
 int Span::shortestSpan()
-{
+{	
+	if (_stock.size() < 2)
+		throw Span::NotEnoughNumber();
 	int span = Span::longestSpan();
 	std::sort(_stock.begin(), _stock.end());
 	std::vector<int>::iterator it = _stock.begin();
@@ -66,6 +68,8 @@ int Span::shortestSpan()
 
 int Span::longestSpan()
 {
+	if (_stock.size() < 2)
+		throw Span::NotEnoughNumber();
 	int min = *min_element(_stock.begin(), _stock.end());
 	int max = *max_element(_stock.begin(), _stock.end());
 	return max - min;
@@ -74,6 +78,11 @@ int Span::longestSpan()
 const char* Span::SizeMax::what() const throw()
 {
 	return ("The max size of span has been reached."); 
+}
+
+const char* Span::NotEnoughNumber::what() const throw()
+{
+	return ("Not enough number are stock to get longest or shortest span"); 
 }
 
 size_t	Span::getSize() const
